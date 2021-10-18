@@ -28,11 +28,11 @@ stages:
         train.num_epochs: 10
     outs:
     - path: dvclive
-      md5: b3f2d8ea713661331dc391cdc5af65f3.dir
-      size: 552
+      md5: f6e7063aa07ca6906befcd535c0f7d2a.dir
+      size: 625
       nfiles: 2
     - path: output/model.h5
-      md5: dc6396e992f839a740b1dbd2257f6e8b
+      md5: ef5a7efd799bf3d27474b5bc991c43a6
       size: 3680480
   evaluate:
     cmd: python src/evaluate.py
