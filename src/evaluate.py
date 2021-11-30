@@ -48,13 +48,13 @@ def add_margin(pil_img, top, right, bottom, left):
 for n, image in enumerate(raw_x_test[:20]):
     font = ImageFont.load_default()
 
-    text = f"Prediction: {predictions[n]}"
+    text = f"Ground Truth: {labels[n]}\nPrediction: {predictions[n]}"
 
     # get text size
     text_size = font.getsize(text)
 
     # set button size + 10px margins
-    label_size = (text_size[0]+20, text_size[1]+20)
+    label_size = (text_size[0]+30, text_size[1]+30)
 
     label_img = Image.new('RGBA', label_size, "black")
     label_draw = ImageDraw.Draw(label_img)
@@ -62,7 +62,7 @@ for n, image in enumerate(raw_x_test[:20]):
 
     print(image.shape)
     image_pil = Image.fromarray(np.squeeze(image))
-    image_pil = add_margin(image_pil, 25, 25, 25, 25)
+    image_pil = add_margin(image_pil, 50, 50, 50, 50)
     image_pil.paste(label_img)
 
     live.log(f"prediction_{n}.png", image_pil)
