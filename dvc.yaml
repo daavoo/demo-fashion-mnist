@@ -17,13 +17,13 @@ stages:
     - train.lr
     - train.num_epochs
     outs:
-    - output/model.h5
-    plots:
-    - output/train_logs.csv:
+    - output/model.h5:
+        checkpoint: true
+    live:
+      dvclive:
+        summary: true
+        html: true
         cache: false
-        template: linear
-        x: epoch
-        y: accuracy
   evaluate:
     cmd: python src/evaluate.py
     deps:
